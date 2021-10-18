@@ -23,6 +23,10 @@ pub use diecimila::*;
 mod leonardo;
 #[cfg(feature = "arduino-leonardo")]
 pub use leonardo::*;
+#[cfg(feature = "lora32u4ii")]
+mod lora32u4ii;
+#[cfg(feature = "lora32u4ii")]
+pub use lora32u4ii::*;
 #[cfg(feature = "arduino-mega2560")]
 mod mega2560;
 #[cfg(feature = "arduino-mega2560")]
