@@ -8,6 +8,7 @@
 //! **Note**: This version of the documentation was built for
 #![cfg_attr(feature = "arduino-diecimila", doc = "**Arduino Diecimila**.")]
 #![cfg_attr(feature = "arduino-leonardo", doc = "**Arduino Leonardo**.")]
+#![cfg_attr(feature = "lora32u4ii", doc = "**LoRa32u4II**.")]
 #![cfg_attr(feature = "arduino-mega2560", doc = "**Arduino Mega 2560**.")]
 #![cfg_attr(feature = "arduino-nano", doc = "**Arduino Nano**.")]
 #![cfg_attr(feature = "arduino-uno", doc = "**Arduino Uno**.")]
@@ -53,6 +54,7 @@ compile_error!(
 
     * arduino-diecimila
     * arduino-leonardo
+    * lora32u4ii
     * arduino-mega2560
     * arduino-nano
     * arduino-uno
@@ -200,7 +202,10 @@ macro_rules! pins {
     };
 }
 
-#[cfg(any(feature = "arduino-leonardo"))]
+#[cfg(any(
+    feature = "arduino-leonardo"
+    feature = "lora32u4ii"
+))]
 #[macro_export]
 macro_rules! default_serial {
     ($p:expr, $pins:expr, $baud:expr) => {

@@ -17,6 +17,7 @@ pub(crate) mod default {
     #[cfg(any(
         feature = "arduino-diecimila",
         feature = "arduino-leonardo",
+        feature = "lora32u4ii",
         feature = "arduino-mega2560",
         feature = "arduino-nano",
         feature = "arduino-uno",
