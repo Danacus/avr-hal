@@ -203,7 +203,7 @@ macro_rules! pins {
 }
 
 #[cfg(any(
-    feature = "arduino-leonardo"
+    feature = "arduino-leonardo",
     feature = "lora32u4ii"
 ))]
 #[macro_export]
