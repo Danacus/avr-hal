@@ -202,10 +202,19 @@ macro_rules! pins {
     };
 }
 
-#[cfg(any(
-    feature = "arduino-leonardo",
-    feature = "lora32u4ii"
-))]
+#[cfg(any(feature = "lora32u4ii"))]
+#[macro_export]
+macro_rules! default_serial {
+    ($p:expr, $pins:expr, $baud:expr) => {
+        $crate::Usart::new(
+            $p.USART0,
+            $pins.d0,
+            $pins.d1.into_output(),
+            $crate::hal::usart::BaudrateExt::into_baudrate($baud),
+        )
+    };
+}
+#[cfg(any(feature = "arduino-leonardo"))]
 #[macro_export]
 macro_rules! default_serial {
     ($p:expr, $pins:expr, $baud:expr) => {
